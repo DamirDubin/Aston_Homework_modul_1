@@ -1,4 +1,4 @@
-public class Address {
+public class Address implements Cloneable{
     private String city;
     private String street;
 
@@ -21,5 +21,14 @@ public class Address {
 
     public String getStreet() {
         return street;
+    }
+
+    @Override
+    public Address clone() {
+        try {
+            return (Address) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
